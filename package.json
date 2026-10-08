@@ -3,11 +3,11 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "dev": "node scripts/require-env.js && concurrently -k \"npm run dev:backend\" \"node scripts/wait-for-api.js && npm run dev:frontend\"",
+    "dev": "node api.js && node scripts/require-env.js && concurrently -k \"npm run dev:backend\" \"node scripts/wait-for-api.js && npm run dev:frontend\"",
     "dev:frontend": "node scripts/require-env.js && vite",
     "dev:backend": "node scripts/require-env.js && nodemon src/server/server.js",
-    "start": "node scripts/require-env.js && node src/server/server.js",
-    "build": "node scripts/require-env.js && vite build",
+    "start": "node api.js && node scripts/require-env.js && node src/server/server.js",
+    "build": "node api.js && node scripts/require-env.js && vite build",
     "compile": "hardhat compile",
     "chain": "hardhat node",
     "deploy:local": "hardhat run scripts/deploy.js --network localhost"
